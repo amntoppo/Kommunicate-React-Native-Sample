@@ -6,6 +6,8 @@ require 'json'
 podfile_properties = JSON.parse(File.read(File.join(__dir__, 'Podfile.properties.json'))) rescue {}
 
 platform :ios, podfile_properties['ios.deploymentTarget'] || '12.0'
+use_frameworks!
+
 install! 'cocoapods',
   :deterministic_uuids => false
 
@@ -33,6 +35,8 @@ target 'ReactNativeSample' do
   #   use_flipper!()
   # end
 
+  # pod 'RNKommunicateChat', :path => '../node_modules/react-native-kommunicate-chat'
+
   post_install do |installer|
     react_native_post_install(installer)
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
@@ -40,7 +44,7 @@ target 'ReactNativeSample' do
 
   post_integrate do |installer|
     begin
-      expo_patch_react_imports!(installer)
+      expo_patch_react_imports!(installer)re
     rescue => e
       Pod::UI.warn e
     end

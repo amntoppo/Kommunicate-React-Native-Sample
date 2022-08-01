@@ -1,4 +1,8 @@
 rootProject.name = 'ReactNativeSample'
+include ':react-native-kommunicate-chat'
+project(':react-native-kommunicate-chat').projectDir = new File(rootProject.projectDir, '../../../Kommunicate-React-Native-SDK/android')
+include ':react-native-kommunicate-chat'
+project(':react-native-kommunicate-chat').projectDir = new File(rootProject.projectDir, '../../../Kommunicate-React-Native-SDK/android')
 
 apply from: new File(["node", "--print", "require.resolve('expo/package.json')"].execute(null, rootDir).text.trim(), "../scripts/autolinking.gradle");
 useExpoModules()
