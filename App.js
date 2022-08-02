@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Button, Alert, TextInput, NativeModule } from 'react-native';
-//import {RNKommunicateChat} from 'react-native-kommunicate-chat';
+import { StyleSheet, Text, View, Button, Alert, TextInput, NativeModules } from 'react-native';
+//import RNKommunicateChat from 'react-native-kommunicate-chat';
 
-var RNKommunicateChat = NativeModule.RNKommunicateChat;
+var RNKommunicateChat = NativeModules.RNKommunicateChat;
 export default function App() {
   this.appid = "eb775c44211eb7719203f5664b27b59f"
 
@@ -12,7 +12,7 @@ export default function App() {
   //   this.appid = "eb775c44211eb7719203f5664b27b59f"
   // }
 
-  loginVisitor = () => {
+  loginAsVisitor = () => {
     RNKommunicateChat.loginAsVisitor(this.appid, (status, message) => {
       if(status == 'Success') {
         RNKommunicateChat.isLoggedIn((response) => {
@@ -115,7 +115,7 @@ export default function App() {
 
     updateConversationAssignee = () => {
       RNKommunicateChat.updateConversationAssignee({
-          clientConversationId: "58458073",
+          clientConversationId: "75160928",
           conversationAssignee: "aman.toppo@kommunicate.io"}, (success, error) => {
             console.log("Update conversation assignee, status : " + success + " and message : " + error);
           });
@@ -132,7 +132,7 @@ export default function App() {
 
     updateConversationInfo = () => {
       RNKommunicateChat.updateConversationInfo({
-        clientConversationId: "58458073",
+        clientConversationId: "75160928",
         conversationInfo: {
           "test1": "value1",
           "test2": "value2"
